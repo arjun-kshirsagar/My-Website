@@ -124,7 +124,7 @@ const achievementSection = {
       subtitle: "Beautiful, free photos Gifted by the world’s most generous community of photographers ",
       image: require("./assets/images/walls.webp"),
       footerLink: [
-        { name: "Available on Play Store", url: "https://play.google.com/store/apps/details?id=com.naveenjujaray.walls" },
+        { name: "Available on Play Store", url: "" },
       ]
     },
   ]
