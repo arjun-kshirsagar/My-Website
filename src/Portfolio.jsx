@@ -124,7 +124,7 @@ const achievementSection = {
       subtitle: "Beautiful, free photos Gifted by the world’s most generous community of photographers ",
       image: require("./assets/images/walls.webp"),
       footerLink: [
-        { name: "Available on Play Store", url: "https://play.google.com/store/apps/details?id=com.naveenjujaray.walls" },
+        { name: "Available on Play Store", url: "" },
       ]
     },
   ]
@@ -162,7 +162,7 @@ const talkSection = {
       title: "Build Actions For Google Assistant",
       subtitle: "Codelab at GDG DevFest Karachi 2019",
       slides_url: "https://bit.ly/saadpasta-slides",
-      event_url: "https://www.facebook.com/events/2339906106275053/"
+      event_url: "https://www.facebook.com/events/2339906106275053/af"
     }
   ]
 };
