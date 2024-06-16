@@ -22,19 +22,21 @@ const socialMediaLinks = {
   linkedin: "https://www.linkedin.com/in/arjunkshirsagar/",
   gmail: "kshirsagararjun20@gmail.com",
   instagram: "https://www.instagram.com/arjun.kshirsagarr/",
-  twitter: "https://www.twitter.com/naveenjujaray",
+  twitter: "https://www.twitter.com/",
   // Instagram and Twitter are also supported in the links!
 };
 
 // Your Skills Section
 
 const skillsSection = {
-  title: "What i do",
+  title: "About me",
   subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
   skills: [
-    emoji("⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji("⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean")
+    emoji("⚡ Data Analytics Expertise: My experience in data analytics, including Exploratory Data Analysis (EDA) and SQL, enables me to analyze and interpret complex data sets effectively, driving insightful decision-making."),
+    emoji("⚡ Full-Stack Developer: I am skilled in both backend and frontend development, with a particular expertise in React, allowing me to build dynamic and responsive web applications."),
+    emoji("⚡ Proficient in Rust: With a strong command of Rust, I excel in leveraging this powerful systems programming language known for its safety and performance."),
+    emoji("⚡ Strong in Data Structures and Algorithms (DSA): My in-depth knowledge of Data Structures and Algorithms enhances my problem-solving abilities, ensuring efficient and optimized code."),
+    emoji("⚡ Continuous Learner: I am currently expanding my skill set by further learning Rust, demonstrating my commitment to personal and professional growth in the ever-evolving tech landscape.")
   ],
 
 /* Make Sure You include correct Font Awesome Classname to view your icon
@@ -74,6 +76,11 @@ https://fontawesome.com/icons?d=gallery */
       skillName: "npm",
       fontAwesomeClassname: "fab fa-npm"
     },
+
+    {
+      skillName: "Rust",
+      fontAwesomeClassname: "fab fa-rust"
+    },
   ]
 };
 
@@ -101,6 +108,35 @@ const techStack = {
   ]
 };
 
+// Education Section
+
+const educationInfo = {
+  display: true, // Set false to hide this section, defaults to true
+  schools: [
+    {
+      schoolName: "Scaler School of Technology",
+      logo: require("./assets/images/SSTLogo.avif"),
+      subHeader: "Master of Science in Computer Science",
+      duration: "July 2023 - May 2027",
+      desc: "Worked on many real hands-on projects.",
+      descBullets: [
+        "Took part in interesting open-source projects.",
+        "Took part in competitive programming."
+      ]
+    },
+    {
+      schoolName: "Jawahar Navodaya Vidyalaya",
+      logo: require("./assets/images/JNVLogo.png"),
+      subHeader: "Bachelor of Science in Computer Science",
+      duration: "September 2018 - April 2020",
+      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
+      descBullets: ["Secured 94.8% in Class 10", 
+                    "Represented school in various sports competitions"
+      ]
+    }
+  ]
+};
+
 /* Your Open Source Section to View Your Github Pinned Projects
 To know how to get github key look at readme.md */
 
@@ -110,6 +146,39 @@ const openSource = {
   showGithubProfile :"true" // Set true or false to show Contact profile using Github, defaults to false 
 };
 
+
+// Some big projects you have worked on
+
+const bigProjects = {
+  title: "Hobby Projects",
+  // subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
+  projects: [
+    {
+      image: require("./assets/images/DataAnalytics.png"),
+      projectName: "Aerofit Case Study",
+      projectDesc: "Analyzing Aerofit's customer data using descriptive statistics and probability to drive business insights and decision-making.",
+      footerLink: [
+        {
+          name: "Visit GitHub",
+          url: "https://github.com/arjun-kshirsagar/Aerofit-Case-Study"
+        }
+        //  you can add extra buttons here.
+      ]
+    },
+    {
+      image: require("./assets/images/Editor.png"),
+      projectName: "Command Line Image Editor",
+      projectDesc: "A versatile tool for editing and manipulating images directly from the command line interface.",
+      footerLink: [
+        {
+          name: "Visit GitHub",
+          url: "https://github.com/arjun-kshirsagar/Image-Editor"
+        }
+      ]
+    }
+  ],
+  display: true // Set false to hide this section, defaults to true
+};
 
 // Your Achievement Section Include Your Certification Talks and More
 
@@ -165,4 +234,16 @@ const twitterDetails = {
   userName : "twitter"//Replace "twitter" with your twitter username without @
   
 };
-export { greeting, socialMediaLinks, skillsSection, techStack, openSource, achievementSection, blogSection, contactInfo , twitterDetails};
+export { 
+  greeting, 
+  socialMediaLinks, 
+  skillsSection, 
+  educationInfo,
+  techStack, 
+  openSource, 
+  bigProjects, 
+  achievementSection, 
+  blogSection, 
+  contactInfo , 
+  twitterDetails
+};

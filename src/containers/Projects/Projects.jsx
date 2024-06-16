@@ -1,94 +1,94 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
-import ApolloClient from "apollo-boost";
-import { gql } from "apollo-boost";
+import React, {useContext} from "react";
 import "./Projects.css";
-import Button from "../../components/Button/Button";
-import Loading from "../Loading/Loading";
-import { openSource, socialMediaLinks } from "../../Portfolio";
+import {bigProjects} from "../../Portfolio";
+import {Fade} from "react-reveal";
+// import StyleContext from "../../contexts/StyleContext";
 
-
-export default function Projects() {
-  const GitHubRepoCard = lazy(() => import('../../components/GitHubRepoCard/GitHubRepoCard'));
-  const FailedLoading = () => null ;
-  const renderLoader = () => <Loading />;
-  const [repo, setrepo] = useState([]);
-
-  useEffect(() => {
-    getRepoData();
-  }, []);
-
-  function getRepoData() {
-    const client = new ApolloClient({
-      uri: "https://api.github.com/graphql",
-      request: (operation) => {
-        operation.setContext({
-          headers: {
-            authorization: `Bearer ${openSource.githubConvertedToken}`,
-          },
-        });
-      },
-    });
-
-    client
-      .query({
-        query: gql`
-        {
-        user(login: "${openSource.githubUserName}") {
-          pinnedItems(first: 6, types: [REPOSITORY]) {
-            totalCount
-            edges {
-              node {
-                ... on Repository {
-                  name
-                  description
-                  forkCount
-                  stargazers {
-                    totalCount
-                  }
-                  url
-                  id
-                  diskUsage
-                  primaryLanguage {
-                    name
-                    color
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-        `,
-      })
-      .then((result) => {
-        setrepoFunction(result.data.user.pinnedItems.edges);
-        console.log(result);
-      })
-      .catch(function (error) {
-        console.log(error);
-        setrepoFunction("Error");
-        console.log("Because of this Error, nothing is shown in place of Projects section. Projects section not configured");
-      });
+export default function StartupProject() {
+  function openUrlInNewTab(url) {
+    if (!url) {
+      return;
+    }
+    var win = window.open(url, "_blank");
+    win.focus();
   }
 
-  function setrepoFunction(array) {
-    setrepo(array);
+  // const {isDark} = useContext(StyleContext);
+  if (!bigProjects.display) {
+    return null;
   }
-  if (!(typeof repo === 'string' || repo instanceof String)){
   return (
-    <Suspense fallback={renderLoader()}>
-      <div className="main" id="opensource">
-        <h1 className="project-title">Open Source Projects</h1>
-        <div className="repo-cards-div-main">
-          {repo.map((v, i) => {
-            return <GitHubRepoCard repo={v} key={v.node.id} />;
-          })}
+    <Fade bottom duration={1000} distance="20px">
+      <div className="main" id="projects">
+        <div>
+          <h1 className="skills-heading">{bigProjects.title}</h1>
+          <p
+            // className={
+            //   isDark
+            //     ? "dark-mode project-subtitle"
+            //     : "subTitle project-subtitle"
+            // }
+          >
+            {bigProjects.subtitle}
+          </p>
+
+          <div className="projects-container">
+            {bigProjects.projects.map((project, i) => {
+              return (
+                <div
+                  key={i}
+                  // className={
+                  //   isDark
+                  //     ? "dark-mode project-card project-card-dark"
+                  //     : "project-card project-card-light"
+                  // }
+                >
+                  {project.image ? (
+                    <div className="project-image">
+                      <img
+                        src={project.image}
+                        alt={project.projectName}
+                        className="card-image"
+                      ></img>
+                    </div>
+                  ) : null}
+                  <div className="project-detail">
+                    <h5
+                      // className={isDark ? "dark-mode card-title" : "card-title"}
+                    >
+                      {project.projectName}
+                    </h5>
+                    <p
+                      // className={
+                      //   isDark ? "dark-mode card-subtitle" : "card-subtitle"
+                      // }
+                    >
+                      {project.projectDesc}
+                    </p>
+                    {project.footerLink ? (
+                      <div className="project-card-footer">
+                        {project.footerLink.map((link, i) => {
+                          return (
+                            <span
+                              key={i}
+                              // className={
+                                // isDark ? "dark-mode project-tag" : "project-tag"
+                              // }
+                              onClick={() => openUrlInNewTab(link.url)}
+                            >
+                              {link.name}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <Button text={"More Projects"} className="project-button" href={socialMediaLinks.github} newTab={true} />
       </div>
-    </Suspense>
+    </Fade>
   );
-} else{
-    return(<FailedLoading />);
-  }
 }

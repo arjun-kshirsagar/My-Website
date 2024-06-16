@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import Greeting from "./Greeting/Greeting";
 import Skills from "./skills/Skills";
 import StackProgress from "./skillProgress/Progress";
+import Education from "./Education/Education";
 import Projects from "./Projects/Projects";
 import Achievement from "./Achievement/Achievement";
 import Blogs from "./Blogs/Blogs";
@@ -20,9 +21,10 @@ export default class Main extends Component {
         <Greeting />
         <Skills />
         <StackProgress />
+        <Education/>
         <Projects />
-        <Achievement />
-        <Blogs />
+        {/* <Achievement /> */}
+        {/* <Blogs /> */}
         <Profile />
         <Footer />
         <Top/>
