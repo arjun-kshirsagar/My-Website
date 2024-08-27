@@ -10,7 +10,7 @@ const greeting = {
   /* Your Summary And Greeting Section */
   username: "Arjun Kshirsagar",
   title: "Hi all, I'm Arjun Kshirsagar",
-  subTitle: emoji("A passionate Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / Jekyll and some other cool libraries and frameworks."),
+  subTitle: emoji("A passionate Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Express and some other cool libraries and frameworks."),
   resumeLink: "#"
 };
 
@@ -34,7 +34,6 @@ const skillsSection = {
   skills: [
     emoji("⚡ Data Analytics Expertise: My experience in data analytics, including Exploratory Data Analysis (EDA) and SQL, enables me to analyze and interpret complex data sets effectively, driving insightful decision-making."),
     emoji("⚡ Full-Stack Developer: I am skilled in both backend and frontend development, with a particular expertise in React, allowing me to build dynamic and responsive web applications."),
-    emoji("⚡ Proficient in Rust: With a strong command of Rust, I excel in leveraging this powerful systems programming language known for its safety and performance."),
     emoji("⚡ Strong in Data Structures and Algorithms (DSA): My in-depth knowledge of Data Structures and Algorithms enhances my problem-solving abilities, ensuring efficient and optimized code."),
     emoji("⚡ Continuous Learner: I am currently expanding my skill set by further learning Rust, demonstrating my commitment to personal and professional growth in the ever-evolving tech landscape.")
   ],
